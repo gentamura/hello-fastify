@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15
+    container_name: hello-fastify-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+volumes:
+  db-store:
